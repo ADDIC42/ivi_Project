@@ -15,13 +15,13 @@
 <h2>
 clean-webpack-plugin: Плагин для Webpack, который очищает выходную директорию перед каждой новой сборкой, чтобы удалить предыдущие файлы сборки. 
 (Необходим чтобы проект не был слишком тяжелым, так по мне один из идеальных решений)
-
+<h2>
 <br>
 css-loader: Загрузчик для Webpack, позволяющий импортировать файлы CSS в JavaScript-код в качестве зависимостей модуля.
 
-<br>
+<br><h2>
 html-webpack-plugin: Плагин для Webpack, который генерирует HTML-файл для вашего приложения на основе шаблона, добавляет необходимые ресурсы (такие как скрипты и стили) и автоматически вставляет ссылки на них.
-
+<h2>
 <div align="center" style="display:flex; justify-content:space-around; text-align: center ; align-items:center;">
  <img width='200px' src="https://www.w3.org/html/logo/downloads/HTML5_1Color_Black.svg"/>
 </div>
