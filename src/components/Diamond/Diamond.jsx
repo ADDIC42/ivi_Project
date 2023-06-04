@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import styles from './Diamond.module.scss';
-// import diamondSvg from '../../assets/diamond/diamond.svg';
+import React, { useState, useEffect } from "react";
+import styles from "./Diamond.module.scss";
 
 const Diamond = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [isCounting, setIsCounting] = useState(false);
   const [showCount, setShowCount] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     let interval;
@@ -30,24 +30,40 @@ const Diamond = () => {
   const handleIconClick = () => {
     setIsCounting(true);
     setShowCount(true);
-    setCount(0);
+    setCount(1);
   };
 
-  return (
-    <div className={styles.diamond} onClick={handleIconClick}>
-      {/* <img src={diamondSvg} className={styles.icon} alt="Diamond" />z */}
-      <div className={styles.text_Block}>
-        {showCount && (
-          <span className={styles.text}>{count}</span>
-        )}
-        {!showCount && (
-          <span className={styles.text}>Go!</span>
-        )}
-      </div>
+  const handleMouseEnter = () => {
+    if (isCounting) {
+      document.body.style.backgroundColor = "black";
+    }
+    setIsHovered(true);
+  };
 
+  const handleMouseLeave = () => {
+    document.body.style.backgroundColor = "white";
+    setIsHovered(false);
+  };
+
+  useEffect(() => {
+    if (!isCounting && !isHovered) {
+      document.body.style.backgroundColor = "white";
+    }
+  }, [isCounting, isHovered]);
+
+  return (
+    <div className={styles.Container_diamond} onClick={handleIconClick}>
+      <div
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
+        className={styles.diamond}
+      >
+          {showCount && <span className={styles.text}>{count}</span>}
+          {!showCount && <span className={styles.text}>Go!</span>}
+      
+      </div>
     </div>
   );
 };
 
 export default Diamond;
-

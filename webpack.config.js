@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
@@ -9,6 +9,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
+
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -23,7 +24,14 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]',
+              },
+            },
+          },
           'sass-loader',
         ],
       },
@@ -36,7 +44,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new CleanWebpackPlugin()
   ],
+  output: {
+    filename: 'bundle.[contenthash].js',
+  },
   devServer: {
     static: path.join(__dirname, 'dist'),
     port: 3000,
