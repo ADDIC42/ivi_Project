@@ -17,10 +17,6 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.svg$/,
-        use: ['svg-url-loader'],
-      },
-      {
         test: /\.scss$/,
         use: [
           'style-loader',
