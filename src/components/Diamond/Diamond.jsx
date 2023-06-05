@@ -58,9 +58,8 @@ const Diamond = () => {
         onMouseEnter={handleMouseEnter}
         className={styles.diamond}
       >
-          {showCount && <span className={styles.text}>{count}</span>}
-          {!showCount && <span className={styles.text}>Go!</span>}
-      
+        {showCount && <span className={styles.text}>{count}</span>}
+        {!showCount && <span className={styles.text}>Go!</span>}
       </div>
     </div>
   );
