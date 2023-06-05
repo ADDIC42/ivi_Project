@@ -35,7 +35,7 @@ const Diamond = () => {
 
   const handleMouseEnter = () => {
     if (isCounting) {
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = "#000000";
     }
     setIsHovered(true);
   };
